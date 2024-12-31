@@ -7,8 +7,21 @@ Released under LGPLv2.1+
 Requires:
 Fcitx 5, go.
 
+Dependencies:
+- fcitx5-devel
+- extra-cmake-modules 
+
 Install:
 $ mkdir build && cd build
-$ cmake -DCMAKE_INSTALL_PREFIX=[prefix to fcitx5] ..
+$ cmake -DCMAKE_INSTALL_PREFIX=[prefix to fcitx5] .. (for example: cmake -DCMAKE_INSTALL_PREFIX=/usr/bin ..)
 $ make
-# make install
+$ make install (or as root if required)
+
+If error occurs like
+
+```
+fcitx5-bamboo/bamboo/bamboo-core/go.mod: no such file or directory
+```
+
+Go to root of this project and run
+$ git submodule update --init --recursive
